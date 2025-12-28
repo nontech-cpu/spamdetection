@@ -22,11 +22,17 @@ ps = PorterStemmer()
 # ✅ Text preprocessing function
 def transform_text(text):
     text = text.lower()
-    tokens = word_tokenize(text)
+    tokens = text.split()   # ✅ FIXED (no nltk tokenizer)
+
     words = [word for word in tokens if word.isalnum()]
-    filtered = [word for word in words if word not in stopwords.words('english') and word not in string.punctuation]
+    filtered = [
+        word for word in words
+        if word not in stopwords.words('english')
+    ]
     stemmed = [ps.stem(word) for word in filtered]
+
     return " ".join(stemmed)
+
 
 # ✅ Load vectorizer and model from pickle files
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
