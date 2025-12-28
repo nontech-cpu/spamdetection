@@ -10,6 +10,7 @@ from password import check_password_strength
 nltk.data.path = ['C:/Users/neera/nltk_data']
 nltk.download('stopwords')
 nltk.download('punkt')
+nltk.download("punkt_tab")
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
